@@ -30,7 +30,7 @@ jobs:
       run: npm run build
 
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-pages-artifact@v1
       with:
         name: github-pages
         path: ./out
@@ -40,15 +40,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v3
-      with:
-        name: nextjs-as06
-
     - name: Deploy to Github Pages
       id: deploy-to-github-pages
       uses: actions/deploy-pages@v2
-      with:
-        artifact_name: github-pages
       
   
